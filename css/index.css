@@ -1,0 +1,153 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-size: cover;
+    background-image: url('../assets/PAISAGEM2.jpg');
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+    background-position: center center; /* Centraliza a imagem */
+    height: 100vh;
+}
+
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 1024px;
+    width: 100%;
+    height: fit-content;
+    background-color: rgba(13, 27, 62, 0.9) ;
+    border: 1px solid #0d1b3e ;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gotta-logo {
+    width: 250px;
+    margin: 20px;
+}
+
+h3 {
+    font-size: 20px;
+    color: #ffcd00; 
+}
+
+
+section {
+    padding: 40px;
+    text-align: justify;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif;
+    color: #ffcd00;
+    line-height: 1.5;
+}
+
+section > p {
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: 100%;
+    @media (max-width: 425px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+}
+
+nav {
+    max-width: 1024px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+.logo-img {
+    width: 150px;
+}
+
+.nav-item {
+    background-color: #ffde00;
+    font-family: 'roboto-bold';
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 10px;
+    width: fit-content;
+    font-weight: 600;
+    color: #283578;
+}
+
+.start-aventure {
+    background-color: #ff0000;
+    font-family: 'roboto-bold';
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 10px;
+    width: fit-content;
+    font-weight: 600;
+    color: white;
+}
+
+
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#main-content {
+    height: 100vh;
+}
+
+.person-img {
+    height: 25vh;
+    margin-right: 10px;
+}
+
+.person {
+    height: 100%;
+}
+
+.person-box {
+    margin: 20px 0px 50px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.label {
+    font: arial;
+    color: #ffcd00;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.person-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50%;
+}
+
+.info {
+    font: arial;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+}
