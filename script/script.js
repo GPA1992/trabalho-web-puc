@@ -1,4 +1,4 @@
-function mascaraTelefone(event) {
+const mascaraTelefone = (event) => {
     let tecla = event.key;
     let telefone = event.target.value.replace(/\D+/g, "");
 
@@ -30,19 +30,18 @@ function mascaraTelefone(event) {
 
 
 
-function mostrarModal() {
+const  mostrarModal= () => {
   const modal = document.getElementById("modal");
   modal.style.display = "block";
 }
 
 
-function fecharModal() {
+const fecharModal = () => {
   const modal = document.getElementById("modal");
   modal.style.display = "none";
 }
 
-
-async function requestPokemon(pokemonName) {
+const requestPokemon = async (pokemonName) => {
   const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
 
   try {
