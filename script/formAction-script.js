@@ -35,13 +35,40 @@ function getParameterByName(name) {
   let sex = getParameterByName("sexo");
 
 
+  async function requestPokemon(pokemonName) {
+    const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+  
+    try {
+      const response = await fetch(url);
+  
+      if (!response.ok) {
+        throw new Error(`Erro na requisição: ${response.status}`);
+      }
+      const data = await response.json();
+      return {
+        id: data.id,
+        name: data.name,
+        sprite: data.sprites.other["official-artwork"].front_default,
+        type: data.types[0].type.name
+      };
+    } catch (error) {
+      console.error('Erro durante a requisição:', error);
+    }
+  }
 
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', async function () {
     document.getElementById("name-data").textContent = userName;
     document.getElementById("email-data").textContent = email;
     document.getElementById("contact-data").textContent = contact;
     document.getElementById("age-data").textContent = `${calculateAge(birthDay)} anos` 
     document.getElementById('person').src = `./assets/${sex}.png`;
+    const pokemonName = localStorage.getItem('selectedPokemonId');
+    const pokemon = await requestPokemon(pokemonName)
+    const card = document.getElementsByClassName('pokemon-card')[0];
+    const pokemonImage = document.createElement('img');
+    pokemonImage.classList.add('pokemon-image');
+    pokemonImage.src = pokemon.sprite
+    card.appendChild(pokemonImage)
   });  
   
   

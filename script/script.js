@@ -42,4 +42,62 @@ function fecharModal() {
 }
 
 
+async function requestPokemon(pokemonName) {
+  const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
 
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`Erro na requisição: ${response.status}`);
+    }
+    const data = await response.json();
+    return {
+      id: data.id,
+      name: data.name,
+      sprite: data.sprites.other["official-artwork"].front_default,
+      type: data.types[0].type.name
+    };
+  } catch (error) {
+    console.error('Erro durante a requisição:', error);
+  }
+}
+
+
+const selectPokemon = () => {
+  const pokemonCards = document.querySelectorAll('.pokemon-card');
+
+  pokemonCards.forEach(function (card) {
+    card.addEventListener('click', function () {
+      pokemonCards.forEach(function (otherCard) {
+        otherCard.classList.remove('selected');
+      });
+
+      card.classList.add('selected');
+      const selected = document.getElementsByClassName('selected');
+      localStorage.clear()
+      localStorage.setItem('selectedPokemonId', selected[0].id);
+    });
+  });
+}
+
+
+const createPokemonCard = async (pokemonId) => {
+  const pokemon = await requestPokemon(pokemonId);
+  const pokemonCard = document.getElementById(pokemon.name);
+  const pokemonImage = document.createElement('img');
+    pokemonImage.classList.add('pokemon-image');
+    pokemonImage.src = pokemon.sprite
+    pokemonCard.appendChild(pokemonImage)
+  const pokemonName = document.createElement('p');
+    pokemonName.classList.add('pokemon-name');
+    pokemonName.innerText = pokemon.name;
+    pokemonCard.appendChild(pokemonName)
+}
+
+document.addEventListener('DOMContentLoaded', async function () {
+  await createPokemonCard(4)
+  await createPokemonCard(1)
+  await createPokemonCard(7)
+  selectPokemon()
+});  

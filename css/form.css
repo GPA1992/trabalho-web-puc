@@ -178,3 +178,37 @@
     justify-content: center;
     width: 30%;
   }
+
+
+  .pokemon-image {
+    width: 130px;
+    cursor: pointer;
+  }
+
+  .pokemon-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+
+  .pokemon-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+  }
+
+  .pokemon-name {
+    font-size: 16;
+    color: #f6b200;
+    text-transform: uppercase;
+  }
+
+  .pokemon-card.selected {
+    background-color: #ffcc0056;
+    border: 2px solid white;
+    border-radius: 15px;
+  }
