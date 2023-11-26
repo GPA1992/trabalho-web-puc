@@ -56,11 +56,6 @@ const calculateAge = dateOfBirth => {
   }
 
   document.addEventListener('DOMContentLoaded', async function () {
-    document.getElementById("name-data").textContent = userName;
-    document.getElementById("email-data").textContent = email;
-    document.getElementById("contact-data").textContent = contact;
-    document.getElementById("age-data").textContent = `${calculateAge(birthDay)} anos` 
-    document.getElementById('person').src = `./assets/${sex}.png`;
     const pokemonName = localStorage.getItem('selectedPokemonId');
     const pokemon = await requestPokemon(pokemonName)
     const card = document.getElementsByClassName('pokemon-card')[0];
