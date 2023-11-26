@@ -59,7 +59,7 @@
         <a class="nav-item" href="about.php">Sobre</a>
         <a class="nav-item" href="login.php">Login</a>
       </div>
-      <a class="nav-item start-aventure" href="form.html">Inicie a sua aventura</a>
+      <a class="nav-item start-aventure" href="form.php">Inicie a sua aventura</a>
     </div>
   </nav>
   <main class="main">

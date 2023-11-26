@@ -159,3 +159,101 @@ nav {
     cursor: pointer;
 }
 
+.pokemon-list {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 15px;
+}
+
+.pokemon-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pokemon-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+
+  .pokemon-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+  }
+
+  .pokemon-name {
+    font-size: 16;
+    color: #f6b200;
+    text-transform: uppercase;
+  }
+
+
+  /* Adicionar estilos para o formulário de adicionar Pokémon */
+#add-pokemon-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#pokemonName {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#add-pokemon-btn {
+    padding: 10px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#add-pokemon-btn:hover {
+    background-color: #cc0000;
+}
+
+#new-pokemon-name {
+    color: #ffcd00;
+}
+
+#new-pokemon-btn {
+    padding: 5px;
+    background-color: #ffcd00;
+    color: blue;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#new-pokemon-btn:hover {
+    background-color: #00cc00;
+}
+
+
+#delete-pokemon {
+    background-color: rgba(245, 146, 146, 0.671);
+    color: blue;
+    font-weight: 400;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+}
