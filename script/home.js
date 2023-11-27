@@ -66,7 +66,7 @@ const getParameterByName = name => {
     
         const xhrCheckPokemon = new XMLHttpRequest();
     
-        // Endpoint da API do Pokémon para verificar a existência do Pokémon
+
         const pokemonApiEndpoint = "https://pokeapi.co/api/v2/pokemon/";
     
         xhrCheckPokemon.open("GET", pokemonApiEndpoint + pokemonName.toLowerCase(), true);
@@ -74,7 +74,7 @@ const getParameterByName = name => {
         xhrCheckPokemon.onreadystatechange = function () {
             if (xhrCheckPokemon.readyState == 4) {
                 if (xhrCheckPokemon.status == 200) {
-                    // Pokémon encontrado na API, agora você pode adicionar ao banco de dados
+
                     const xhrAddPokemon = new XMLHttpRequest();
     
                     xhrAddPokemon.open("POST", "adicionar_pokemon.php", true);
@@ -84,12 +84,10 @@ const getParameterByName = name => {
                         if (xhrAddPokemon.readyState == 4 && xhrAddPokemon.status == 200) {
                             alert(xhrAddPokemon.responseText);
     
-                            // Recarregar a página após adicionar com sucesso
                             location.reload();
                         }
                     };
-    
-                    // Envie também o mestreId para o servidor
+
                     xhrAddPokemon.send("pokemonName=" + pokemonName + "&mestreId=" + mestreId);
                 } else {
                     alert("Pokemon não encontrado na API.");
@@ -97,7 +95,7 @@ const getParameterByName = name => {
             }
         };
     
-        // Enviar solicitação para verificar a existência do Pokémon
+  
         xhrCheckPokemon.send();
     }
     

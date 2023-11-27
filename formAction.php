@@ -22,11 +22,12 @@
     $contato = $_POST["celular"];
     $sexo = $_POST["sexo"];
     $nascimento = $_POST["nascimento"];
-    $senha = $_POST["senha"];
+    $senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
     $pokemon = $_POST["pokemon"];
 
 
-    $sqlMestre = "INSERT INTO mestre (nome, email, contato, sexo, nascimento, senha) VALUES ('$nome', '$email', '$contato', '$sexo', '$nascimento', '$senha')";
+    $sqlMestre = "INSERT INTO mestre (nome, email, contato, sexo, nascimento, senha) VALUES 
+    ('$nome', '$email', '$contato', '$sexo', '$nascimento', '$senha')";
 
     if (mysqli_query($conn, $sqlMestre)) {
 
@@ -47,6 +48,9 @@
     mysqli_close($conn);
   }
   ?>
+  <p>
+    <?php echo $pokemon; ?>
+  </p>
 
 
   <header>

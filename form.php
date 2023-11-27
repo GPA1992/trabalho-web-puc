@@ -88,8 +88,8 @@
         </label>
 
         <label>
-          <div class="pokemon-card" id="bulbasaur" value="bulbasaur"></div>
-          <input type="radio" name="pokemon" id="bulbasaur">
+          <div class="pokemon-card" id="bulbasaur"></div>
+          <input type="radio" name="pokemon" id="bulbasaur" value="bulbasaur">
         </label>
       </div>
 

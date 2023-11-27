@@ -7,7 +7,8 @@ body {
     background-image: url('../assets/PAISAGEM2.jpg');
     background-repeat: no-repeat; /* Impede a repetição da imagem */
     background-position: center center; /* Centraliza a imagem */
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
 }
 
 

@@ -15,43 +15,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     include("./db/dbConnect.php");
 
-
     if ($conn->connect_error) {
         die("Conexão falhou: " . $conn->connect_error);
     }
 
-
     $nome = $_POST["name"];
-    $senha = $_POST["senha"];
+    $inputSenha = $_POST["senha"];
 
 
-    $sql = "SELECT * FROM mestre WHERE nome = '$nome' AND senha = $senha LIMIT 1";
+    $sql = "SELECT * FROM mestre WHERE nome = '$nome' LIMIT 1";
     $result = $conn->query($sql);
+
     if ($result->num_rows > 0) {
-        session_start();
         $row = $result->fetch_assoc();
-        $_SESSION['nameData'] = $row["nome"];
-        $_SESSION['emailData'] = $row["email"];
-        $_SESSION['contactData'] = $row["contato"];
-        $_SESSION['birthdateData'] = $row["nascimento"];
-        $_SESSION['sexo'] = $row["sexo"];
-        $mestre_id = $row["id"];
-        $sql_pokemon = "SELECT * FROM pokemon WHERE mestre_id = $mestre_id";
-        $result_pokemon = $conn->query($sql_pokemon);
+        $senhaHash = $row["senha"];
+
+        if (password_verify($inputSenha, $senhaHash)) {
+            session_start();
+            $_SESSION['nameData'] = $row["nome"];
+            $_SESSION['emailData'] = $row["email"];
+            $_SESSION['contactData'] = $row["contato"];
+            $_SESSION['birthdateData'] = $row["nascimento"];
+            $_SESSION['sexo'] = $row["sexo"];
+            $mestre_id = $row["id"];
+            $sql_pokemon = "SELECT * FROM pokemon WHERE mestre_id = $mestre_id";
+            $result_pokemon = $conn->query($sql_pokemon);
+        } else {
+            echo '<script>alert("Login inválido. Não foi possível fazer o login."); window.location.href = "login.php";</script>';
+            exit();
+        }
     } else {
-        $row = $result->fetch_assoc();
-        $_SESSION['nameData'] = '';
-        $_SESSION['emailData'] = '';
-        $_SESSION['contactData'] = '';
-        $_SESSION['birthdateData'] = '';
-        $_SESSION['sexo'] = $row["sexo"];
-        echo "<h1>Login Invalido</h1>";
+        echo '<script>alert("Login inválido. Não foi possível fazer o login."); window.location.href = "login.php";</script>';
+        exit();
     }
-
-
 }
-
 ?>
+
 
 <body>
     <header>
